@@ -1,8 +1,11 @@
 import React from "react";
+import { useContext } from "react";
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Hero from "../Shared/Hero/Hero";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
+  const{user} = useContext(AuthContext)
   return (
     <div>
       <div className="navbar bg-base-300">
@@ -28,7 +31,7 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
+              <li className="active-link">
                 <Link to='/'>Home</Link>
               </li>
               <Link to='blog'>Blog</Link>
@@ -38,7 +41,7 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
+            <li className="active-link">
               <Link to='/'>Home</Link>
             </li>
             <li tabIndex={0}>
@@ -47,8 +50,12 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2 ">
-            <p>Profile</p>
-          <a className="btn">Login</a>
+            {user && <p><FaUserCircle style={{fontSize:'1.5rem'}}></FaUserCircle></p>}
+          {user ?
+           <a className="btn">LogOut</a>:
+           <Link to='login'><a className="btn">Login</a></Link>
+          }
+          
         </div>
       </div>
     </div>
