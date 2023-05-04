@@ -41,7 +41,7 @@ const Header = () => {
               <li>
                 <Link to='/'>Home</Link>
               </li>
-              <Link to='blog'>Blog</Link>
+              <li><Link to='blog'>Blog</Link></li>
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl">Mazza</a>

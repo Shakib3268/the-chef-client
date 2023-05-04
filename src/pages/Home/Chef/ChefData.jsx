@@ -15,7 +15,7 @@ const ChefData = () => {
         <div>
             <Outlet></Outlet>
             
-            <h2 className='text-center mt-3 mb-3 text-2xl font-semibold underline'>Our Chef</h2>
+            <h2 className='text-center mt-3 mb-3 text-2xl font-semibold underline text-red-500'>Our Chef</h2>
           <div className='grid lg:grid-cols-2 gap-2'>
           {
             chefall.map(chef => <Chef key={chef.id} chef={chef}></Chef>)
