@@ -31,7 +31,7 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li className="active-link">
+              <li>
                 <Link to='/'>Home</Link>
               </li>
               <Link to='blog'>Blog</Link>
@@ -41,7 +41,7 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li className="active-link">
+            <li>
               <Link to='/'>Home</Link>
             </li>
             <li tabIndex={0}>
@@ -53,7 +53,7 @@ const Header = () => {
             {user && <p><FaUserCircle style={{fontSize:'1.5rem'}}></FaUserCircle></p>}
           {user ?
            <a className="btn">LogOut</a>:
-           <Link to='login'><a className="btn">Login</a></Link>
+           <Link to='login'><button className="btn">Login</button></Link>
           }
           
         </div>

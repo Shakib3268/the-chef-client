@@ -25,11 +25,11 @@ const router = createBrowserRouter([
         element: <ChefData></ChefData>,
       },
       {
-        path: 'login',
+        path: '/login',
         element: <Login></Login>    
       },
       {
-        path: 'register',
+        path: '/register',
         element: <Register></Register>
       }
     ],

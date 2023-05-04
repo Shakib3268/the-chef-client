@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import Home from '../Home/Home';
 import Chef from '../SingleChef/Chef';
 
 const ChefData = () => {
@@ -13,6 +15,7 @@ const ChefData = () => {
     },[])
     return (
         <div>
+            <Outlet></Outlet>
             
             <h2 className='text-center mt-3 mb-3 text-2xl font-semibold underline'>Our Chef</h2>
           <div className='grid lg:grid-cols-2 gap-2'>
