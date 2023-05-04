@@ -1,10 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext)
+  const {signIn,goggle,github} = useContext(AuthContext)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -28,6 +29,28 @@ const Login = () => {
     })
   }
 
+  const handleGoggle =() =>{
+    goggle()
+    .then(result =>{
+      const goggleUser =result.user 
+      console.log(goggleUser)
+    })
+    .catch(error =>{
+      console.log(error.message)
+    })
+  }
+
+  const handleGithub = () => {
+    github()
+    .then(result =>{
+      const githubUser =result.user 
+      console.log(githubUser)
+    })
+    .catch(error =>{
+      console.log(error.message)
+    })
+  }
+
     return (
         <div className="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-md">
             <h2 className="text-2xl font-bold mb-5">Login</h2>
@@ -45,6 +68,10 @@ const Login = () => {
     </div>
     <p>Don't have an account? <Link to='/register' className='text-red-400 underline'>Register</Link> </p>
   </form>
+       <div className='ml-[100px]'>
+       <button className='flex items-center bg-green-500 p-3 m-3 text-xl mb-3' onClick={handleGoggle}> <FaGoogle></FaGoogle><span className='ml-2'>Goggle SignIn</span> </button>
+       <button className='flex items-center bg-green-500 p-3 m-4 text-xl mb-3' onClick={handleGithub }><FaGithub></FaGithub><span className='ml-2'>Github Login</span></button>
+       </div>
         </div>
     );
 };
