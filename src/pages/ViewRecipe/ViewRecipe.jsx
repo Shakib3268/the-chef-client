@@ -8,7 +8,7 @@ const ViewRecipe = () => {
   const recipe = chef.recipes;
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl mt-4 mb-4">
+      <div className="card w-96 bg-base-100 shadow-xl mt-4 mb-4 text-center">
         <figure>
           <img
             src={picture}
