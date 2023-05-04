@@ -5,7 +5,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
-  const{user} = useContext(AuthContext)
+  const{user,logOut} = useContext(AuthContext)
+  const handleLogOut = () =>[
+    logOut()
+    .then()
+    .catch(error => {
+      console.log(error)
+    })
+  ]
   return (
     <div>
       <div className="navbar bg-base-300">
@@ -52,7 +59,7 @@ const Header = () => {
         <div className="navbar-end gap-2 ">
             {user && <p><FaUserCircle style={{fontSize:'1.5rem'}}></FaUserCircle></p>}
           {user ?
-           <a className="btn">LogOut</a>:
+           <button onClick={handleLogOut} className="btn">LogOut</button>:
            <Link to='login'><button className="btn">Login</button></Link>
           }
           
