@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -6,18 +7,30 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
+  const [error,setError] = useState('')
+  const[succes,setSucces] = useState('')
+
   const handleRegister = (event) => {
     event.preventDefault();
+    setSucces('')
+    setError('')
     const form = event.target;
     const name = form.name.value;
     const photo = form.photo.value
     const email = form.email.value;
     const password = form.password.value
     console.log(name,photo, email,password);
+    if(password.length < 6){
+      setError('Please Add Atleast 6 Character')
+      return
+    }
     createUser(email,password)
     .then(result => {
       const creatLogged = result.user 
       console.log(creatLogged)
+      setError('')
+      setSucces('User has Created Succesfully')
+      form.reset()
     })
     .catch(error => {
       console.log(error.message)
@@ -60,6 +73,8 @@ const Register = () => {
           Login
         </Link>
       </p>
+      <p className="text-red-600">{error}</p>
+      <p className="text-green-500">{succes}</p>
     </div>
   );
 };
