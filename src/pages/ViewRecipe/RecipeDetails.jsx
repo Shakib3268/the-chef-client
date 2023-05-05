@@ -16,7 +16,7 @@ const RecipeDetails = ({recipe}) => {
     </h2>
     <p>
         {
-            ingredients.map(int => <li>{int}</li>)
+            ingredients.map(int =><li>{int}</li>)
         }
     </p>
     <p><span className='font-semibold'>Cooking Method:</span> {cooking_method}</p>

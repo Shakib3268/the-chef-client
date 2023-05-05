@@ -14,11 +14,11 @@ const Chef = ({ chef }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{name}</h2>
-          <p className="text-xl"> <span className="font-semibold">Details:</span> {bio}</p>
-          <p>Experience: {years_of_experience} years</p>
-          <p>Number Of Recipe: {num_recipes}</p>
-          <p className="flex gap-3">Total Like:<FaRegThumbsUp></FaRegThumbsUp> {likes}</p>
+          <h2 className="card-title">{name}</h2> 
+          <p className="text-xl"> <span className="font-semibold">Details: </span> {bio}</p>
+          <p className="text-xl"><span className="font-semibold">Experience: </span>{years_of_experience} years</p>
+          <p className="text-xl"><span className="font-semibold">Number of Recipe: </span> {num_recipes}</p>
+          <p className="flex gap-3 text-xl"><span className="font-semibold">Likes: </span><FaRegThumbsUp></FaRegThumbsUp> {likes}</p>
           <div className="card-actions justify-end">
             <Link to={`chef/${chef.id}`} className="btn btn-primary">View recipe</Link>
           </div>

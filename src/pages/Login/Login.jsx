@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -57,11 +58,11 @@ const Login = () => {
   <form onSubmit={handleLogin}>
     <div className="mb-5">
       <label className="block text-gray-700 font-bold mb-2">Email</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" className="border-gray-400 border-2 p-2 w-full rounded-md focus:outline-none focus:border-blue-400"required/>
+      <input type="email" id="email" value={email} name="email" placeholder="you@example.com" className="border-gray-400 border-2 p-2 w-full rounded-md focus:outline-none focus:border-blue-400"required/>
     </div>
     <div className="mb-5">
       <label className="block text-gray-700 font-bold mb-2">Password</label>
-      <input type="password" id="password" name="password" placeholder="********" className="border-gray-400 border-2 p-2 w-full rounded-md focus:outline-none focus:border-blue-400" required/>
+      <input type="password" id="password" value={password} name="password" placeholder="********" className="border-gray-400 border-2 p-2 w-full rounded-md focus:outline-none focus:border-blue-400" required/>
     </div>
     <div className="mb-5">
       <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-blue-600">Login</button>

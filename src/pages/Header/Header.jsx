@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
@@ -15,7 +15,7 @@ const Header = () => {
   ]
   return (
     <div>
-      <div className="navbar bg-base-300">
+      <nav className="navbar bg-base-300">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -39,7 +39,7 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to='/'>Home</Link>
+                <NavLink to='/'>Home</NavLink>
               </li>
               <li><Link to='blog'>Blog</Link></li>
             </ul>
@@ -49,7 +49,7 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to='/'>Home</Link>
+              <NavLink to='/'>Home</NavLink>
             </li>
             <li tabIndex={0}>
               <Link to='blog'>Blog</Link>
@@ -64,7 +64,7 @@ const Header = () => {
           }
           
         </div>
-      </div>
+      </nav>
     </div>
   );
 };
